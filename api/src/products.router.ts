@@ -48,4 +48,15 @@ router.get("/", (req, res) => {
   res.json(paginated);
 });
 
+router.get("/:id", (req: Request<{ id: string }>, res) => {
+  const { id } = req.params;
+  const product = products.find((product) => product.id === id);
+
+  if (product) {
+    return res.json(product);
+  }
+
+  return res.status(404).json({ error: `Producto con id '${id}' no encontrado` });
+});
+
 export default router;
