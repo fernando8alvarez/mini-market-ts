@@ -1,8 +1,11 @@
-import express from 'express';
 import productsRouter from './products.router.js';
+import express from 'express';
+import dotenv from 'dotenv';
 
+
+dotenv.config();
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use('/api/products', productsRouter);
 

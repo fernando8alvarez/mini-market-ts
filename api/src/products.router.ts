@@ -1,13 +1,13 @@
 import productsJson from "./data/products.json" with { type: 'json' };
-import type { Request } from 'express';
+import { getTopCheapestAvailable } from "./utils/products.js";
+import type { Request, Response } from 'express';
 import type { Product } from './types.js';
 import { Router } from "express";
-
 
 const products: Product[] = productsJson;
 const router = Router();
 
-router.get("/", (req, res) => {
+router.get("/", (req: Request, res: Response<Product[]>) => {
   let result = [...products];
 
   const {
@@ -17,7 +17,17 @@ router.get("/", (req, res) => {
     page = "1",
     limit = "10",
     available,
+    Cheapest,
   } = req.query;
+
+
+  // Filtrado por productos más baratos
+  if (Cheapest === "true") {
+    const top = parseInt(String(limit));
+    const filtered = getTopCheapestAvailable(products, top);
+    
+    return res.json(filtered);
+}
 
   // Filtro por disponibilidad
   if (available === "true") result = result.filter((p) => p.isAvailable);
@@ -40,12 +50,12 @@ router.get("/", (req, res) => {
   });
 
   // Paginación
-  const pageNum = parseInt(page as string);
-  const limitNum = parseInt(limit as string);
+  const pageNum = parseInt(String(page));
+  const limitNum = parseInt(String(limit));
   const start = (pageNum - 1) * limitNum;
   const paginated = result.slice(start, start + limitNum);
 
-  res.json(paginated);
+  return res.json(paginated);
 });
 
 router.get("/:id", (req: Request<{ id: string }>, res) => {
