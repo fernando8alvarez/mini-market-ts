@@ -1,7 +1,7 @@
 import productsJson from "./data/products.json" with { type: 'json' };
 import { getTopCheapestAvailable } from "./utils/products.js";
+import type { Product } from '../../shared/types.ts';
 import type { Request, Response } from 'express';
-import type { Product } from './types.js';
 import { Router } from "express";
 
 const products: Product[] = productsJson;

@@ -1,4 +1,4 @@
-import type { Product } from "../types.js";
+import type { Product } from "../../../shared/types.ts";
 
 export function getTopCheapestAvailable(
   products: Product[],

@@ -1,5 +1,7 @@
 {
+  "extends": "../tsconfig.base.json",
   "compilerOptions": {
+    "composite": true,
     "target": "ES2022",
     "module": "nodenext",
     "lib": ["ES2022"],
@@ -26,5 +28,7 @@
     "esModuleInterop": true,
     "emitDeclarationOnly": true,
     "allowImportingTsExtensions": true
-  }
+  },
+  "include": ["src", "src/**/*.json"],
+  "references": [{ "path": "../shared" }]
 }
