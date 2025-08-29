@@ -1,0 +1,74 @@
+[
+  {
+    "id": "p1",
+    "name": "Guantes GN102",
+    "price": 59.9,
+    "isAvailable": true,
+    "category": "gloves",
+    "image": "/img/gn102.jpg"
+  },
+  {
+    "id": "p2",
+    "name": "Casco CS433",
+    "price": 79.9,
+    "isAvailable": false,
+    "category": "headgear",
+    "image": "/img/cs433.jpg"
+  },
+  {
+    "id": "p3",
+    "name": "Bolsa AC990",
+    "price": 24.5,
+    "isAvailable": true,
+    "category": "bag",
+    "image": "/img/ac990.jpg"
+  },
+  {
+    "id": "p4",
+    "name": "Guantes G-Grip",
+    "price": 39.9,
+    "isAvailable": true,
+    "category": "gloves",
+    "image": "/img/ggrip.jpg"
+  },
+  {
+    "id": "p5",
+    "name": "Casco Leone CS432",
+    "price": 89.5,
+    "isAvailable": true,
+    "category": "headgear",
+    "image": "/img/cs432.jpg"
+  },
+  {
+    "id": "p6",
+    "name": "Bolsa Leone DNA AC992",
+    "price": 34.9,
+    "isAvailable": false,
+    "category": "bag",
+    "image": "/img/ac992.jpg"
+  },
+  {
+    "id": "p7",
+    "name": "Guantes Shock GN102L",
+    "price": 64.0,
+    "isAvailable": true,
+    "category": "gloves",
+    "image": "/img/gn102l.jpg"
+  },
+  {
+    "id": "p8",
+    "name": "Casco CS431 Black Edition",
+    "price": 99.0,
+    "isAvailable": false,
+    "category": "headgear",
+    "image": "/img/cs431.jpg"
+  },
+  {
+    "id": "p9",
+    "name": "Bolsa Malla AC990 Blanca",
+    "price": 22.0,
+    "isAvailable": true,
+    "category": "bag",
+    "image": "/img/ac990b.jpg"
+  }
+]
