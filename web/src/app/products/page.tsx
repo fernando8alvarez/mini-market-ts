@@ -6,8 +6,9 @@ import ProductCard from "../../components/ProductCard";
 import ProductFilters from "../../components/ProductFilters";
 import type { Product } from "../../../../shared/types";
 import Pagination from "../../components/Pagination";
+import Link from "next/link";
 
-const limit = 3;
+const limit = 6;
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -37,7 +38,7 @@ export default function ProductsPage() {
   }, [search, availability, sort, order]);
 
   return (
-    <main className="p-6">
+    <main className="min-h-screen flex flex-col items-center p-6">
       <h1 className="text-2xl font-bold mb-4">Productos</h1>
       <ProductFilters
         search={search}
@@ -49,11 +50,15 @@ export default function ProductsPage() {
         order={order}
         setOrder={setOrder}
       />
-      <div className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
+
+      <div className="w-full max-w-7xl grid gap-6 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <Link key={product.id} href={`/products/${product.id}`}>
+            <ProductCard product={product} />
+          </Link>
         ))}
       </div>
+
       <Pagination page={page} setPage={setPage} />
     </main>
   );

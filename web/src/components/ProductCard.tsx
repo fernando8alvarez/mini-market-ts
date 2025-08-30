@@ -2,7 +2,7 @@ import type { Product } from "../../../shared/types";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="border rounded p-4 flex flex-col items-center gap-2">
+    <div className="border rounded p-4 flex flex-col items-center gap-2 cursor-pointer">
       <img
         src={`/img/${product.image}`}
         alt={product.name}
