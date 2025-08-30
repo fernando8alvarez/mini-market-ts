@@ -5,7 +5,7 @@
     "price": 59.9,
     "isAvailable": true,
     "category": "gloves",
-    "image": "/img/gn102.jpg"
+    "image": "gn102.jpg"
   },
   {
     "id": "p2",
@@ -13,7 +13,7 @@
     "price": 79.9,
     "isAvailable": false,
     "category": "headgear",
-    "image": "/img/cs433.jpg"
+    "image": "cs433.png"
   },
   {
     "id": "p3",
@@ -21,7 +21,7 @@
     "price": 24.5,
     "isAvailable": true,
     "category": "bag",
-    "image": "/img/ac990.jpg"
+    "image": "ac990.png"
   },
   {
     "id": "p4",
@@ -29,7 +29,7 @@
     "price": 39.9,
     "isAvailable": true,
     "category": "gloves",
-    "image": "/img/ggrip.jpg"
+    "image": "ggrip.jpg"
   },
   {
     "id": "p5",
@@ -37,7 +37,7 @@
     "price": 89.5,
     "isAvailable": true,
     "category": "headgear",
-    "image": "/img/cs432.jpg"
+    "image": "cs432.jpg"
   },
   {
     "id": "p6",
@@ -45,7 +45,7 @@
     "price": 34.9,
     "isAvailable": false,
     "category": "bag",
-    "image": "/img/ac992.jpg"
+    "image": "ac992.png"
   },
   {
     "id": "p7",
@@ -53,7 +53,7 @@
     "price": 64.0,
     "isAvailable": true,
     "category": "gloves",
-    "image": "/img/gn102l.jpg"
+    "image": "gn102l.png"
   },
   {
     "id": "p8",
@@ -61,7 +61,7 @@
     "price": 99.0,
     "isAvailable": false,
     "category": "headgear",
-    "image": "/img/cs431.jpg"
+    "image": "cs431.jpg"
   },
   {
     "id": "p9",
@@ -69,6 +69,6 @@
     "price": 22.0,
     "isAvailable": true,
     "category": "bag",
-    "image": "/img/ac990b.jpg"
+    "image": "ac990b.jpg"
   }
 ]
