@@ -6,16 +6,20 @@ export default function ProductFilters({
   sort,
   setSort,
   order,
-  setOrder
+  setOrder,
+  cheapest,
+  setCheapest,
 }: {
-  search: string
-  setSearch: (v: string) => void
-  availability: string
-  setAvailability: (v: string) => void
-  sort: string
-  setSort: (v: string) => void
-  order: string
-  setOrder: (v: string) => void
+  search: string;
+  setSearch: (v: string) => void;
+  availability: string;
+  setAvailability: (v: string) => void;
+  sort: string;
+  setSort: (v: string) => void;
+  order: string;
+  setOrder: (v: string) => void;
+  cheapest: boolean;
+  setCheapest: (v: boolean) => void;
 }) {
   return (
     <div className="flex flex-wrap gap-4 mb-6">
@@ -23,24 +27,45 @@ export default function ProductFilters({
         type="text"
         placeholder="Buscar..."
         value={search}
-        onChange={e => setSearch(e.target.value)}
+        onChange={(e) => setSearch(e.target.value)}
         className="border px-3 py-2 rounded cursor-pointer"
       />
-      <select value={availability} onChange={e => setAvailability(e.target.value)} className="border px-3 py-2 rounded cursor-pointer">
+      <select
+        value={availability}
+        onChange={(e) => setAvailability(e.target.value)}
+        className="border px-3 py-2 rounded cursor-pointer"
+      >
         <option value="">Disponibilidad</option>
         <option value="true">En stock</option>
         <option value="false">Sin stock</option>
       </select>
-      <select value={sort} onChange={e => setSort(e.target.value)} className="border px-3 py-2 rounded cursor-pointer">
+      <select
+        value={sort}
+        onChange={(e) => setSort(e.target.value)}
+        className="border px-3 py-2 rounded cursor-pointer"
+      >
         <option value="">Clasificar</option>
         <option value="name">Nombre</option>
         <option value="price">Precio</option>
       </select>
-      <select value={order} onChange={e => setOrder(e.target.value)} className="border px-3 py-2 rounded cursor-pointer">
+      <select
+        value={order}
+        onChange={(e) => setOrder(e.target.value)}
+        className="border px-3 py-2 rounded cursor-pointer"
+      >
         <option value="">Ordenar</option>
         <option value="asc">Ascendente</option>
         <option value="desc">Descendente</option>
       </select>
+      <button
+        onClick={() => setCheapest(!cheapest)}
+        className={`border px-3 py-2 rounded cursor-pointer ${
+          cheapest ? "bg-blue-500 text-white" : ""
+        }`}
+      >
+        {cheapest ? "Ver todos" : "Ver más baratos"}
+      </button>
+
     </div>
-  )
+  );
 }

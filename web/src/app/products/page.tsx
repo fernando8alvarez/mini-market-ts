@@ -17,25 +17,28 @@ export default function ProductsPage() {
   const [sort, setSort] = useState("");
   const [order, setOrder] = useState("");
   const [page, setPage] = useState(1);
-
-  console.log({ search, availability, sort, order, limit, page });
+  const [cheapest, setCheapest] = useState(false);
 
   useEffect(() => {
     const params: Record<string, string> = {
       search: search ?? "",
-      available: availability, // convierte true/false a "true"/"false"
+      available: availability,
       sort: sort ?? "",
       order: order ?? "",
       limit: limit.toString(),
       page: page.toString(),
     };
 
+    if (cheapest) {
+      params.Cheapest = "true";
+    }
+
     fetchProducts(params).then(setProducts);
-  }, [search, availability, sort, order, limit, page]);
+  }, [search, availability, sort, order, limit, page, cheapest]);
 
   useEffect(() => {
     setPage(1);
-  }, [search, availability, sort, order]);
+  }, [search, availability, sort, order, cheapest]);
 
   return (
     <main className="min-h-screen flex flex-col items-center p-6">
@@ -49,6 +52,8 @@ export default function ProductsPage() {
         setSort={setSort}
         order={order}
         setOrder={setOrder}
+        cheapest={cheapest}
+        setCheapest={setCheapest}
       />
 
       <div className="w-full max-w-7xl grid gap-6 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
