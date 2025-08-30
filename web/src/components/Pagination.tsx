@@ -1,4 +1,3 @@
-// web/components/PaginationControls.tsx
 "use client";
 
 interface PaginationProps {

@@ -3,7 +3,7 @@
 import axios from "axios";
 import type { Product } from "../../../../shared/types";
 
-const BASE_URL = "http://localhost:3001/api";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api";
 
 export async function fetchProducts(params?: Record<string, string>) {
   const query = new URLSearchParams(params).toString();

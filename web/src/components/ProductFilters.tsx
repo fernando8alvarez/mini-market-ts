@@ -1,4 +1,3 @@
-// components/ProductFilters.tsx
 export default function ProductFilters({
   search,
   setSearch,
