@@ -1,54 +1,46 @@
-"use client";
+import Image from "next/image";
+import Link from "next/link";
 
-import { useEffect, useState } from "react";
-
-interface Product {
-  id: string;
-  name: string;
-  price: number;
-  isAvailable: boolean;
-  category: string;
-  image: string;
-}
-
-
-export default function ProductsPage() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [search, setSearch] = useState("");
-  const [availability, setAvailability] = useState("");
-  const [sort, setSort] = useState("");
-
-  useEffect(() => {
-  }, []);
-
-  const filtered = products
-    .filter((p) => p.name.toLowerCase().includes(search.toLowerCase()))
-    .filter((p) => {
-      if (availability === "available") return p.isAvailable;
-      if (availability === "unavailable") return !p.isAvailable;
-      return true;
-    })
-    .sort((a, b) => {
-      if (sort === "price") return a.price - b.price;
-      return a.name.localeCompare(b.name);
-    });
-
+export default function Home() {
   return (
-    <main className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Productos</h1>
-      {/* <ProductFilters
-        search={search}
-        setSearch={setSearch}
-        availability={availability}
-        setAvailability={setAvailability}
-        sort={sort}
-        setSort={setSort}
-      />
-      <div className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
-        {filtered.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div> */}
-    </main>
+    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        <Image
+          className="dark:invert"
+          src="/next.svg"
+          alt="Next.js logo"
+          width={250}
+          height={38}
+          priority
+        />
+        <div className="flex gap-4 items-center flex-col sm:flex-row">
+          <Link
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
+            href="/products"
+          >
+            <Image
+              className="dark:invert"
+              src="/vercel.svg"
+              alt="Vercel logomark"
+              width={20}
+              height={20}
+            />
+            Ver listado de productos
+          </Link>
+        </div>
+      </main>
+      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+        <span className="flex items-center gap-2">
+          <Image
+            aria-hidden
+            src="/globe.svg"
+            alt="Globe icon"
+            width={16}
+            height={16}
+          />
+          Coded by Luis Fernando Alvarez
+        </span>
+      </footer>
+    </div>
   );
 }
